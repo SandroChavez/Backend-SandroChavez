@@ -1,0 +1,170 @@
+[
+    {
+        "name": "manzana",
+        "price": 20,
+        "stock": 20,
+        "id": 1
+    },
+    {
+        "name": "pera",
+        "price": 20,
+        "stock": 20,
+        "id": 2
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 3
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 4
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 5
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 6
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 7
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 8
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 9
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 10
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 11
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 12
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 13
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 14
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 15
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 16
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 17
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 18
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 19
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 20
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 21
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 22
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 23
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 24
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 25
+    },
+    {
+        "name": "platano",
+        "price": 30,
+        "stock": 15,
+        "id": 26
+    },
+    {
+        "name": "manzana",
+        "price": 20,
+        "stock": 20,
+        "id": 27
+    },
+    {
+        "name": "manzana",
+        "price": 20,
+        "stock": 20,
+        "id": 28
+    }
+]

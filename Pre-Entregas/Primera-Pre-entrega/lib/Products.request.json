@@ -1,0 +1,42 @@
+[
+    {
+        "tittle": "carriot",
+        "description": "",
+        "code": "A-003",
+        "price": 40,
+        "status": true,
+        "stock": 30,
+        "category": "vegetable",
+        "id": 1
+    },
+    {
+        "tittle": "carriot",
+        "description": "",
+        "code": "A-003",
+        "price": 40,
+        "status": true,
+        "stock": 30,
+        "category": "vegetable",
+        "id": 3
+    },
+    {
+        "tittle": "carriot",
+        "description": "",
+        "code": "A-003",
+        "price": 40,
+        "status": true,
+        "stock": 30,
+        "category": "vegetable",
+        "id": 4
+    },
+    {
+        "tittle": "carriot",
+        "description": "",
+        "code": "A-003",
+        "price": 40,
+        "status": true,
+        "stock": 30,
+        "category": "vegetable",
+        "id": 5
+    }
+]

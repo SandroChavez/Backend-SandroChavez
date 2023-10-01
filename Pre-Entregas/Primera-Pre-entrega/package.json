@@ -1,14 +1,15 @@
 {
-  "name": "desafio-3",
+  "name": "primera-pre-entrega",
   "version": "1.0.0",
   "description": "",
-  "main": "ProductManager.js",
+  "main": "CartsManager.js",
   "type": "module",
-  "scripts": {
-    "start": "nodemon server.js",
-    "dev": "node server.js"
+  "directories": {
+    "lib": "lib"
   },
-  "keywords": [],
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "author": "",
   "license": "ISC"
 }

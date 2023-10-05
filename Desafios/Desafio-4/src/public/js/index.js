@@ -7,6 +7,8 @@ const inputPrice = document.getElementById("price")
 
 const listProduct = document.getElementById("listProduct")
 
+let path = window.location.pathname;
+
 form.onsubmit = async(e) => {
     e.preventDefault()
 
@@ -18,30 +20,32 @@ form.onsubmit = async(e) => {
         return
     }
 
-    const product = {
+    const data = {
+      product:{
         tittle,
         price
+      },
+      path
     }
 
-    socketClient.emit("enviarProducto",product)
+    socketClient.emit("enviarProducto",data)
 }
 
-socketClient.on("ActualizarProducto", (products) => {
+socketClient.on("ActualizarProducto", ({products}) => {
 
-    console.log(products)
 
-    const templateHTML = 
-    `
-    {{#each products}}
-      <li>
-        <h3>tittle: {{this.tittle}}</h3>
-        <p>price: {{this.price}}</p>
-        <p>id: {{this.id}}</p>
-      </li>
-      {{/each}}  
-    `
+  const templateHTML =
+  `
+  {{#each products}}
+    <li>
+      <h3>tittle: {{this.tittle}}</h3>
+      <p>price: {{this.price}}</p>
+      <p>id: {{this.id}}</p>
+    </li>
+    {{/each}}  
+  `
 
-    const template = Handlebars.compile(templateHTML);
+  const template = Handlebars.compile(templateHTML);
 
-    listProduct.innerHTML = template({ products });
+  listProduct.innerHTML = template( {products} );
 })

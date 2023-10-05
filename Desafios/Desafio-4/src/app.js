@@ -18,6 +18,7 @@ app.set("view engine","handlebars")
 app.set("views",__dirname + "/views")
 
 app.use("/api/products",productsApiRoute)
+app.use("/products",productsRenderRoute)
 app.use("/realTimeProducts",productsRenderRoute)
 
 //PUERTO
@@ -33,7 +34,7 @@ socketServer.on("connection", (socket) => {
         // console.log(`cliente desconectado: ${socket.id}`)
     })
 
-    socket.on("enviarProducto",async (product) => {
+    socket.on("enviarProducto",async ({path,product}) => {
         try{
             const url = "http://localhost:8080/api/products"
 
@@ -50,12 +51,17 @@ socketServer.on("connection", (socket) => {
             if(!responsePost.ok){
                 return
             }
+
+            //Comprobamos que no se este enviando desde la ruta products
+            if(path == "/products"){
+                return
+            }
             
             const responseGet = await fetch(url)
 
-            const data = await responseGet.json()
+            const dataResponse = await responseGet.json()
             
-            const products = data.products
+            const products = dataResponse.products
 
             socketServer.emit("ActualizarProducto",{products})
         }catch(err){

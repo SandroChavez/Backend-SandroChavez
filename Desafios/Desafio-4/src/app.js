@@ -6,7 +6,6 @@ import productsApiRoute from "./routes/productsApi.router.js"
 import { Server } from "socket.io"
 
 const app = express();
-const port = 8080
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -21,8 +20,9 @@ app.use("/api/products",productsApiRoute)
 app.use("/products",productsRenderRoute)
 app.use("/realTimeProducts",productsRenderRoute)
 
-//PUERTO
-const httpServer = app.listen(port,() => {
+const PORT = 8080
+
+const httpServer = app.listen(PORT,() => {
     console.log("escuchando el puerto 8080")
 })
 
@@ -36,7 +36,7 @@ socketServer.on("connection", (socket) => {
 
     socket.on("enviarProducto",async ({path,product}) => {
         try{
-            const url = "http://localhost:8080/api/products"
+            const url = "http://localhost:8080/api/messages"
 
             const opciones = {
                 method: 'POST',

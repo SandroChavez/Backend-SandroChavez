@@ -1,0 +1,25 @@
+<main>
+    <section>
+        <h2>Products</h2>
+        <form action="/api/products" method="post">
+            <input type="text" name="tittle" id="tittle" placeholder="Tittle">
+            <input type="text" name="stock" id="stock" placeholder="Stock">
+            <input type="text" name="price" id="price" placeholder="Price">
+            <input type="text" name="description" id="description" placeholder="Description">
+            <input type="submit" value="SIGNUP">
+        </form>
+        <p>Recordatorio: los productos se añaden al final de la pagina</p>
+    </section>
+    <section>
+        <ul>
+        {{#each products}}
+            <li>
+                <p>Tittle: {{tittle}}</p>
+                <p>Price: {{price}}</p>
+                <p>Stock: {{stock}}</p>
+                <p>Description: {{description}}</p>
+            </li>
+        {{/each}}
+        </ul>
+    </section>   
+</main>

@@ -1,0 +1,25 @@
+<main>
+    <section>
+        <h2>Messages</h2>
+        <form action="/api/messages" method="post" id="form">
+            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="text" name="message" id="message" placeholder="Message">
+            <input type="submit" value="Emit">
+        </form>
+    </section>
+    <section>
+        <button id="DelateChat">Borrar chat</button>
+        <ul id="messages">
+        {{#each messages}}
+            <li>
+                <h4>{{email}}</h4>
+                <p>{{message}}</p>
+            </li>  
+        {{/each}}
+        </ul>
+    </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="/js/chat.js"></script>

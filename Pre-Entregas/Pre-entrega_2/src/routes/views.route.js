@@ -9,10 +9,10 @@ router.get("/products",async (req,res) => {
     // const products = await productsManager.findAll(req.query)
     
     // res.render("products",{products})
-    const {results} = await productsManager.findAll(req.query)
-    const products = results
+    const response = await productsManager.findAll(req.query)
+    const products = response.payload
     
-    res.render("products",{products: products})
+    res.render("products",{products})
 })
 
 router.get("/chat", async (req,res) => {

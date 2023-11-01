@@ -7,22 +7,27 @@ class ProductsManager {
   // }
 
   async findAll(obj) {
-    const { limit = 10, page = 1, ...filter } = obj
+    const { limit = 4, page = 1, sort = null, ...filter } = obj
 
-    const response = await productsModel.paginate(filter,{limit,page});
-    console.log(response)
+    const response = await productsModel.paginate(filter,{limit,page, sort: sort ? {price: sort} : {}});
+
     const info = {
-      count: response.totalDocs,
-      pages: response.totalPages,
-      next: response.hasNextPage
-        ? `http://localhost:8080/api/users?page=${response.nextPage}`
+      payload : response.docs,
+      // count: response.totalDocs,
+      totalPages: response.totalPages,
+      prevPage: response.prevPage,
+      nextPage: response.nextPage,
+      page: response.page,
+      hasNextPage: response.hasNextPage ? true : false,
+      hasPrevPage: response.hasPrevPage ? true : false,       
+      nextLink: response.hasNextPage 
+        ? `http://localhost:8080/api/products?page=${response.nextPage}`
         : null,
-      prev: response.hasPrevPage
-        ? `http://localhost:8080/api/users?page=${response.prevPage}`
-        : null,
+      prevLink: response.hasPrevPage
+        ? `http://localhost:8080/api/products?page=${response.prevPage}`
+        : null
     };
-    const results = response.docs
-    return {info, results};
+    return info;
   }
 
   // async findLimit(limit) {

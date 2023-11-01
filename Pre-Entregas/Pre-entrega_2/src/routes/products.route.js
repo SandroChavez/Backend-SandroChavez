@@ -5,9 +5,11 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   try {
-    const products = await productsManager.findAll(req.query);
-    
-    res.status(200).json({ message: "Products", products });
+    const response = await productsManager.findAll(req.query);
+
+    const products = {status: "success", ...response}
+
+    res.status(200).json({ message: "Products", products});
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

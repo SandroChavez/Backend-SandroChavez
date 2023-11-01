@@ -17,6 +17,7 @@ router.post("/:idCart/products/:idProduct", async (req, res) => {
   
 router.post("/", async (req, res) => {
     const cart = await cartsManager.createCart();
+
     res.json({ cart });
 });
 

@@ -1,6 +1,6 @@
 import express from "express"
 import { __dirname } from "./util.js"
-import { engine } from "express-handlebars"
+import exphbs from "express-handlebars"
 import { Server } from "socket.io"
 import productsRoute from "./routes/products.route.js"
 import cartsRoute from "./routes/carts.route.js"
@@ -18,7 +18,12 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.static(__dirname + "/public"))
 
 //handlebars
-app.engine("handlebars", engine())
+const hbs = exphbs.create({
+    runtimeOptions: {
+      allowProtoPropertiesByDefault: true
+    }
+});
+app.engine("handlebars", hbs.engine)
 app.set("view engine","handlebars")
 app.set("views",__dirname + "/views")
 
@@ -31,6 +36,7 @@ const PORT = 8080
 
 const httpServer = app.listen(PORT, () => {
     console.log(`Escuchando al puerto ${PORT}`);
+    console.log(`http://localhost:${PORT}/products`)
 })
 
 const socketServer = new Server(httpServer)

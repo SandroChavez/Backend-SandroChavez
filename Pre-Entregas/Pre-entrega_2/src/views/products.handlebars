@@ -18,9 +18,10 @@
                 <p>Price: {{price}}</p>
                 <p>Stock: {{stock}}</p>
                 <p>Description: {{description}}</p>
+                <button onclick="addProduct({{_id}})" >Agregar al carrito</button>
             </li>
         {{/each}}
-        <p>{{count}}</p>
         </ul>
-    </section>   
+    </section> 
+    <script type="module" src="/js/addProduct.js"></script>
 </main>

@@ -10,23 +10,61 @@ class CartsManager {
   async findCartById(idCart) {
     const response = await cartsModel
       .findById(idCart)
-      .populate("products.product", ["name", "price"]);
+      .populate("products.product", ["tittle", "price"]);
     return response;
   }
 
   async addProductToCart(idCart, idProduct) {
-    const cart = await cartsModel.findById(idCart);
+    const response = await cartsModel.findById(idCart);
 
-    const productIndex = cart.products.findIndex((p) =>
+    const productIndex = response.products.findIndex((p) =>
       p.product.equals(idProduct)
     );
 
     if (productIndex === -1) {
-      cart.products.push({ product: idProduct, quantity: 1 });
+      response.products.push({ product: idProduct, quantity: 1 });
     } else {
-      cart.products[productIndex].quantity++;
+      response.products[productIndex].quantity++;
     }
-    return cart.save();
+    return response.save();
+  }
+
+  async delateOneProductCartById(idCart,idProduct){
+    const response = await cartsModel.findById(idCart)
+
+    response.products = response.products.filter((product) => !product.product.equals(idProduct));
+      
+    return await response.save()
+  }
+
+  async delateAllProductsCartById(idCart){
+    const response = await cartsModel.findById(idCart)
+
+    response.products = []
+
+    return await response.save()
+  }
+
+  async updateCart(idCart,products){
+    const response = await cartsModel.findByIdAndUpdate(idCart,{products},{new: true})
+
+    return response
+  }
+
+  async updateProductCart(idCart,idProduct,qty){
+    const response = await cartsModel.findByIdAndUpdate(
+      idCart,
+      {
+        $set: {
+          'products.$[p].quantity': qty
+        }
+      },
+      {
+        new: true,
+        arrayFilters: [{ 'p.product': idProduct }]
+      },)
+    
+    return response
   }
 }
 

@@ -12,16 +12,25 @@
     </section>
     <section>
         <ul>
-        {{#each products}}
+        {{#each data.payload}}
             <li>
-                <p>Tittle: {{tittle}}</p>
+                <a class="tittleLinks" idProduct="{{_id}}" href="#" >Tittle: {{tittle}}</a>
                 <p>Price: {{price}}</p>
                 <p>Stock: {{stock}}</p>
-                <p>Description: {{description}}</p>
-                <button onclick="addProduct({{_id}})" >Agregar al carrito</button>
+                <button class='addProduct' idProduct="{{_id}}" >Agregar al carrito</button>
             </li>
         {{/each}}
         </ul>
+    
+        {{#if data.hasPrevPage}}
+        <a href="{{data.prevLink}}"><button>←</button></a>
+        {{/if}}
+
+        {{#if data.hasNextPage}}
+        <a href="{{data.nextLink}}"><button>→</button></a>
+        {{/if}}        
+        
     </section> 
-    <script type="module" src="/js/addProduct.js"></script>
 </main>
+<script type="module" src="js/addProduct.js"></script>
+<script type="module" src="js/redirectProduct.js"></script>

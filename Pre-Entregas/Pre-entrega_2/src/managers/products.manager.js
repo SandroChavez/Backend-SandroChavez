@@ -21,10 +21,10 @@ class ProductsManager {
       hasNextPage: response.hasNextPage ? true : false,
       hasPrevPage: response.hasPrevPage ? true : false,       
       nextLink: response.hasNextPage 
-        ? `http://localhost:8080/api/products?page=${response.nextPage}`
+        ? `http://localhost:8080/products?page=${response.nextPage}`
         : null,
       prevLink: response.hasPrevPage
-        ? `http://localhost:8080/api/products?page=${response.prevPage}`
+        ? `http://localhost:8080/products?page=${response.prevPage}`
         : null
     };
     return info;
@@ -36,28 +36,28 @@ class ProductsManager {
   // }
 
   async findById(id) {
-    const result = await productsModel.findById(id);
-    return result;
+    const response = await productsModel.findById(id);
+    return response;
   }
 
   async createOne(obj) {
-    const result = await productsModel.create(obj);
-    return result;
+    const response = await productsModel.create(obj);
+    return response;
   }
 
   async updateOne(id, obj) {
-    const result = await productsModel.updateOne({ _id: id }, obj);
-    return result;
+    const response = await productsModel.updateOne({ _id: id }, obj);
+    return response;
   }
 
   async deleteOne(id) {
-    const result = await productsModel.deleteOne({ _id: id });
-    return result;
+    const response = await productsModel.deleteOne({ _id: id });
+    return response;
   }
 
   async deleteAll(){
-    const result = await productsModel.deleteMany()
-    return result
+    const response = await productsModel.deleteMany()
+    return response
   }
 }
 

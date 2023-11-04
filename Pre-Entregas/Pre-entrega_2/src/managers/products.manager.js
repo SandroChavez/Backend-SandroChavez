@@ -21,10 +21,10 @@ class ProductsManager {
       hasNextPage: response.hasNextPage ? true : false,
       hasPrevPage: response.hasPrevPage ? true : false,       
       nextLink: response.hasNextPage 
-        ? `http://localhost:8080/products?page=${response.nextPage}`
+        ? `http://localhost:8080/products?page=${response.nextPage}&limit=${limit}`
         : null,
       prevLink: response.hasPrevPage
-        ? `http://localhost:8080/products?page=${response.prevPage}`
+        ? `http://localhost:8080/products?page=${response.prevPage}&limit=${limit}`
         : null
     };
     return info;

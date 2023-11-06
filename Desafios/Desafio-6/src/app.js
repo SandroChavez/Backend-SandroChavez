@@ -65,10 +65,6 @@ const httpServer = app.listen(PORT, () => {
 const socketServer = new Server(httpServer)
 
 socketServer.on("connection", (socket) => {
-    console.log(`Cliente conectado: ${socket.id}`)
-    socket.on("disconnect",() => {
-        console.log(`cliente desconectado: ${socket.id}`)
-    })
 
     //Chat
     socket.on("enviarMensaje", async({messageData}) => {

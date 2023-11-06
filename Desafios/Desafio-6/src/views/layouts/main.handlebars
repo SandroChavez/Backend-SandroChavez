@@ -35,11 +35,13 @@
     <header>
         <ul>
             {{!-- El Puerto Se debe modificar --}}
-            <li><a href="http://localhost:8080/products">Productos</a></li>
-            <li><a href="http://localhost:8080/chat">Chat</a></li>
+            <li><a class="link" href="#" redirectRoute="/products">Productos</a></li>
+            <li><a class="link" href="#" redirectRoute="/chat">Chat</a></li>
+            <li><a class="link" href="#" redirectRoute="/profile">Perfil</a></li>
         </ul>
     </header>
     {{{body}}}
 
+    <script type="module" src="js/redirect.js"></script>
 </body>
 </html>

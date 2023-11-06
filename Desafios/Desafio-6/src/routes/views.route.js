@@ -7,14 +7,14 @@ import { cartsManager } from "../managers/carts.manager.js";
 const router = Router();
 
 router.get("/products",async (req,res) => {
-    // const products = await productsManager.findAll(req.query)
-    
-    // res.render("products",{products})
     const response = await productsManager.findAll(req.query)
     
     const data = response
+
+    //session
+    const user = req.session.user
     
-    res.render("products",{data})
+    res.render("products",{data,user})
 })
 
 router.get("/products/:idProduct",async (req,res) =>{
@@ -38,4 +38,24 @@ router.get("/carts/:idCart", async (req,res) => {
     res.render("cart",{products})
 })
 
+router.get("/login",async (req,res) => {
+    if(req.session.user){
+        return res.redirect("/profile")
+    }
+    res.render("login")
+})
+
+router.get("/signup", async (req,res) => {
+    if(req.session.user){
+        return res.redirect("/profile")
+    }
+    res.render("signup")
+})
+
+router.get("/profile", async (req,res) => {
+    if(!req.session.user){
+        return res.redirect("/login")
+    }
+    res.render("profile",{user: req.session.user})
+})
 export default router

@@ -26,8 +26,8 @@ router.get("/products/:idProduct",async (req,res) =>{
 
 router.get("/chat", async (req,res) => {
     const messages = await messagesManager.findAll()
-
-    res.render("messages",{messages})
+    const user = req.session.user
+    res.render("chat",{messages,user})
 })
 
 router.get("/carts/:idCart", async (req,res) => {

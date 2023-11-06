@@ -2,7 +2,7 @@ import { messagesModel } from "../dao/db/models/messages.model.js"
 
 class MessagesManager{
   async findAll(){
-    const result = await messagesModel.find().sort({_id: -1}).lean()
+    const result = await messagesModel.find().sort({_id: 1}).lean()
     return result
   }
   async findLimit(limit){

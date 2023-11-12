@@ -1,0 +1,14 @@
+<main>
+    <section>
+        <h3>Tittle: {{product.tittle}}</h3>
+        <p>Price: {{product.price}}</p>
+        <p>Stock: {{product.stock}}</p>
+        {{#if product.description}}
+        <p>Description: {{product.description}}</p>
+        {{else}}
+        <p>Description: sin description</p>
+        {{/if}}
+        <button class='addProduct' idProduct="{{_id}}" >Agregar al carrito</button>
+    </section>
+</main>
+<script type="module" src="js/addProduct.js"></script>

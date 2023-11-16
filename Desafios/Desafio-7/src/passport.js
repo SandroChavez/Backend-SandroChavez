@@ -3,7 +3,9 @@ import { usersManager } from "./managers/users.manager.js"
 import { Strategy as LocalStrategy } from "passport-local"
 import { Strategy as GithubStrategy } from "passport-github2";
 import { hashData, compareData } from "./util.js";
+import { config } from "dotenv"
 
+config()
 
 passport.use(
     "signup",
@@ -64,8 +66,8 @@ passport.use(
     "github",
     new GithubStrategy(
       {
-        clientID: "Iv1.684e18f1e25227d3",
-        clientSecret: "84d7f46cea67088ffa5288c86008cd9cdd775cb9",
+        clientID: process.env.GITHUB_CLIENT_ID,
+        clientSecret: process.env.GITHUB_CLIENT_SECRET,
         callbackURL: "http://localhost:8080/api/sessions/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
@@ -79,7 +81,7 @@ passport.use(
               return done(null, false);
             }
           }
-          console.log(profile)
+          
           // signup
           const infoUser = {
             first_name: profile._json.name.split(" ")[0], // ['farid','sesin']
@@ -88,7 +90,7 @@ passport.use(
             password: " ",
             isGithub: true,
           };
-          // const createdUser = await usersManager.createOne(infoUser);
+          const createdUser = await usersManager.createOne(infoUser);
           done(null, createdUser);
         } catch (error) {
           done(error);

@@ -81,10 +81,10 @@ router.post(
 router.get(
     "/auth/github",
     passport.authenticate("github", { scope: ["user:email"] })
-);
+  );
   
 router.get("/callback", passport.authenticate("github"), (req, res) => {
-    res.send("Probando");
+    res.redirect("/profile");
 });
 
 router.get("/logout", (req, res) => {

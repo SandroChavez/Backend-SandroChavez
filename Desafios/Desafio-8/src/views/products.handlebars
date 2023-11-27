@@ -1,0 +1,39 @@
+<main>
+    <section>
+        <h1>Welcome {{user.first_name}}</h1>
+    </section>
+    <section>
+        <h2>Products</h2>
+        {{#if user.isAdmin}}
+        <form action="/api/products" method="post">
+            <input type="text" name="tittle" id="tittle" placeholder="Tittle">
+            <input type="text" name="stock" id="stock" placeholder="Stock">
+            <input type="text" name="price" id="price" placeholder="Price">
+            <input type="text" name="description" id="description" placeholder="Description">
+            <input type="submit" value="SIGNUP">
+        </form>
+        {{/if}}
+    </section>
+    <section>
+        <ul>
+        {{#each data.payload}}
+            <li>
+                <a class="link" href="#" redirectRoute="/products" idProduct="{{_id}}">Tittle: {{tittle}}</a>
+                <p>Price: {{price}}</p>
+                <p>Stock: {{stock}}</p>
+                <button class='addProduct' idProduct="{{_id}}">Agregar al carrito</button>
+            </li>
+        {{/each}}
+        </ul>
+    
+        {{#if data.hasPrevPage}}
+        <a href="{{data.prevLink}}"><button>←</button></a>
+        {{/if}}
+
+        {{#if data.hasNextPage}}
+        <a href="{{data.nextLink}}"><button>→</button></a>
+        {{/if}}        
+        
+    </section> 
+</main>
+<script type="module" src="/js/addProduct.js"></script>

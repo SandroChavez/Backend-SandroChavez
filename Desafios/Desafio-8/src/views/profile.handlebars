@@ -1,0 +1,18 @@
+<main>
+    <section>
+        <p>Nombre: {{user.first_name}}</p>
+        <p>Apellido: {{user.last_name}}</p>
+        <p>Email: {{user.email}}</p>
+        <button><a href="#" class="link" redirectRoute="/api/sessions/logout">Cerrar sesion</a></button>
+    </section>
+    <section>
+        <ul>
+        {{#each user.carts}}
+            <li>
+                <h3><a href="#" class="link" redirectRoute="/carts" idCart="{{_id}}">Cart: {{_id}}</a></h3>
+                <button onclick="">Usar Carrito</button>
+            </li>
+        {{/each}}
+        </ul>
+    </section>
+</main>

@@ -81,7 +81,7 @@ router.post(
 router.get(
     "/auth/github",
     passport.authenticate("github", { scope: ["user:email"] })
-  );
+);
   
 router.get("/callback", passport.authenticate("github"), (req, res) => {
     res.redirect("/profile");

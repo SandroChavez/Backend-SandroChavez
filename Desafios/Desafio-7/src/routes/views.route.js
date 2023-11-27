@@ -57,7 +57,6 @@ router.get("/profile", (req, res) => {
       return res.redirect("/login");
     }
     const { first_name, last_name, email } = req.user;
-    console.log(req.user)
 
     res.render("profile", { user: { first_name, last_name, email } });
 });

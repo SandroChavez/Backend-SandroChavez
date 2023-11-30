@@ -120,7 +120,6 @@ passport.use(
         // login
         if (userDB) {
           if (userDB.isGoogle) {
-            console.log("userDB.isGoogle",true)
             return done(null, userDB);
           } else {
             return done(null, false);
@@ -129,15 +128,16 @@ passport.use(
         
         // signup
         const infoUser = {
-          first_name: profile._json.given_name, // ['farid','sesin']
+          first_name: profile._json.given_name,
           last_name: profile._json.family_name.split(" ")[0],
           email: profile._json.email,
           password: " ",
           isGoogle: true,
-          cartsManager:[await generateNewCart()]
+          carts:[await generateNewCart()]
         };
         console.log(infoUser)
-        // const createdUser = await usersManager.createOne(infoUser);
+        const createdUser = await usersManager.createOne(infoUser);
+        console.log(createdUser)
         done(null, createdUser);
       } catch (error) {
         done(error);

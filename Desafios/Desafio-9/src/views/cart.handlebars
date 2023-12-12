@@ -1,0 +1,18 @@
+<main>
+    {{#if products}}
+    <h1>Tu carrito</h1>
+    <section>
+        <ul>
+            {{#each products}}
+            <li>
+                <p>Tittle: {{this.product.tittle}}</p>
+                <p>price: {{this.product.price}}</p>
+                <p>quantity: {{quantity}}</p>
+            </li>
+            {{/each}}
+        </ul>
+    </section>
+    {{else}}
+    <h1>Tu carrito esta vacio</h1>
+    {{/if}}
+</main>

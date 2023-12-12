@@ -1,0 +1,18 @@
+<main>
+    <section>
+        <h3>Crear Cuenta</h3>
+        <form action="/api/sessions/signup" method="post">
+            <input type="text" name="first_name" id="first_name" placeholder="first name">
+            <input type="text" name="last_name" id="last_name" placeholder="last name">
+            <input type="email" name="email" id="email" placeholder="email">
+            <input type="password" name="password" id="password" placeholder="password">
+            <input type="submit" value="signup">
+        </form>
+        <p>
+            ¿Ya tienes cuenta?
+            <a href="#" class="link" redirectRoute="/login">Iniciar Sesion</a>
+        </p>
+        <button><a href="#" class="link" redirectRoute="/api/sessions/auth/github">GITHUB</a></button>
+        <button><a href="#" class="link" redirectRoute="/api/sessions/auth/google">GOOGLE</a></button>
+    </section>
+</main>

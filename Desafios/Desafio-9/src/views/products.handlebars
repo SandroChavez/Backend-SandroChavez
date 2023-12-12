@@ -1,0 +1,29 @@
+<main>
+    <section>
+        <form action="/api/products" method="post">
+            <input type="text" name="tittle" id="tittle" placeholder="Tittle">
+            <input type="text" name="stock" id="stock" placeholder="Stock">
+            <input type="text" name="price" id="price" placeholder="Price">
+            <input type="text" name="description" id="description" placeholder="Description">
+            <input type="submit" value="SIGNUP">
+        </form>
+    </section>
+    <section>
+        <div>
+            <button><a href="{{productsData.prevLink}}">←</a></button>
+            <button>{{productsData.page}}</button>
+            <button><a href="{{productsData.nextLink}}">→</a></button>
+        </div>
+        <ul>
+            {{#each productsData.payload}}
+            <li>
+                <h3><a href="#" class="link" redirectRoute="/products" idProduct="{{this._id}}" >Name: {{this.tittle}}</a></h3>
+                <p>Price: {{this.price}}</p>
+                <p>Stock: {{this.stock}}</p>
+                <button class="addProduct" idProduct="{{this._id}}">Agregar al carrito</button>
+            </li>
+            {{/each}}
+        </ul>
+    </section>
+</main>
+<script type="module" src="/js/addProduct.js"></script>

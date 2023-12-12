@@ -121,7 +121,7 @@ router.post("/restaurar", async(req,res) => {
     try{
         const user = await usersManager.findByEmail(email)
         if(!user){
-            return response.redirect("/")
+            return res.redirect("/")
         }
         const passwordHashed = await hashData(password)
         user.password = passwordHashed
